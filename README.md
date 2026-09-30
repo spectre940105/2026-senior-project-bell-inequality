@@ -54,16 +54,17 @@ Bell 不等式是檢驗局域隱變量模型與量子力學非定域關聯的核
 ## 📊 代表性研究圖表
 
 <div align="center">
-  <img src="Datapicture/各雜訊下之Bell不等式比較.png" alt="Werner White Noise Comparison" width="85%">
+  <img src="Datapicture/I2222_vs_w.png" alt="Werner White Noise Comparison" width="85%">
+  <img src="Datapicture/I3322_vs_w.png" alt="Werner White Noise Comparison" width="85%">
   <p><em>圖 1：$I_{2222}$ 與 $I_{3322}$ 在 Werner 白噪音模型下之最大量子違背與臨界抗噪容忍度 ($R_c$) 比較</em></p>
 </div>
 
 <div align="center">
-  <img src="Datapicture/相位圖比較.png" alt="Two Kraus Phase Diagram" width="70%">
+  <img src="Datapicture/I2222_figure_3.png" alt="Two Kraus Phase Diagram" width="70%">
+  <img src="Datapicture/I3322_figure_3.png" alt="Two Kraus Phase Diagram" width="70%">
   <p><em>圖 2：Two-Kraus 噪聲通道下之 $(p, \eta)$ 相位臨界圖（展示兩不等式臨界邊界之非重合與互補特性）</em></p>
 </div>
 
-> *(註：若圖片無法顯示，請將上方檔名替換為 `Datapicture/` 中的實際檔案名稱)*
 
 ---
 
