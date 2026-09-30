@@ -1,0 +1,400 @@
+%%
+%% This is file `SCAM-ctemplate.sty' used for Chinese Project Report of Students
+%% in Department of Smart Computing and Applied Mathematicsm TUnghai Univsersity
+%%
+%% Copyright 2026/6/22
+%%
+%% The LaTeX3 Project and any individual authors listed elsewhere
+%% in this file.
+%%
+%% This file was generated from file(s) of the LaTeX base system.
+%% --------------------------------------------------------------
+%%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This file has the LPPL maintenance status "maintained".
+%%
+%% This file may only be distributed together with a copy of the LaTeX
+%% base system. You may however distribute the LaTeX base system without
+%% such generated files.
+%%
+%% The list of all files belonging to the LaTeX base distribution is
+%% given in the file `manifest.txt'. See also `legal.txt' for additional
+%% information.
+%%
+%% The list of derived (unpacked) files belonging to the distribution
+%% and covered by LPPL is defined by the unpacking scripts (with
+%% extension .ins) which are part of the distribution.
+%% \CharacterTable
+%%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+	%%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+	%%   Digits        \0\1\2\3\4\5\6\7\8\9
+	%%   Exclamation   \!     Double quote  \"     Hash (number) \#
+	%%   Dollar        \$     Percent       \%     Ampersand     \&
+	%%   Acute accent  \'     Left paren    \(     Right paren   \)
+	%%   Asterisk      \*     Plus          \+     Comma         \,
+	%%   Minus         \-     Point         \.     Solidus       \/
+	%%   Colon         \:     Semicolon     \;     Less than     \<
+	%%   Equals        \=     Greater than  \>     Question mark \?
+	%%   Commercial at \@     Left bracket  \[     Backslash     \\
+	%%   Right bracket \]     Circumflex    \^     Underscore    \_
+	%%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+	%%   Right brace   \}     Tilde         \~}
+
+
+%
+%-----------------------------------------------------------------------
+% The 2-3 digits of article number denote area of paper, i.e., 01 math, 02 phy,
+% 03 chem, 04 life science, we can add on and keep it here
+%-----------------------------------------------------------------------
+% \def\articleID{10001}
+% \def\doino{10.29273/TS.202307\_24.} 
+\def\JournalName{Project Report(2026)}
+\def\cJournalName{專題研究報告(2026)}
+
+\usepackage[numbers,compress]{natbib}
+\usepackage{url}
+\usepackage[no-math]{fontspec}
+%
+% use font Times for math and text
+%
+\usepackage{mathptmx}
+\usepackage{amsmath, amsthm, amssymb, mathrsfs}
+\DeclareSymbolFontAlphabet{\mathcal}{symbols}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\SetMathAlphabet\mathcal{bold}{OMS}{cmsy}{bx}{n}
+\usepackage{tocbibind} % add bibiography into pdf's bookmark
+
+\usepackage[dvipsnames, svgnames, table]{xcolor} %引用顏色套件
+\usepackage{colortbl} % \setlength\minrowclearance{2.4pt}
+\usepackage{array}
+\usepackage{float}
+\usepackage{calc}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf, .PDF, .png, .PNG, .jpg, .JPG, .JPEG}
+\usepackage{tikz,pgfplots}
+\pgfplotsset{compat=1.16}
+\pagestyle{empty}
+\setcounter{tocdepth}{1}
+
+\usepackage[unicode=true,
+ bookmarks=true, bookmarksnumbered=false, bookmarksopen=true, bookmarksopenlevel=3,
+ breaklinks=false,
+ pdfborder={0 0 0},pdfborderstyle={},
+%-----------------------------------------------------------------------
+% 參考文獻的引用的頁碼，最後版本將下行關掉，
+%-----------------------------------------------------------------------
+% backref=page,
+%-----------------------------------------------------------------------
+% 取消 footnote 的hyperlink
+%-----------------------------------------------------------------------
+hyperfootnotes=false,
+colorlinks=true]
+{hyperref}
+
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\theoremstyle{plain}
+\newtheorem{thm}{\protect\theoremname}
+
+\@ifundefined{date}{}{\date{}}
+
+%
+%page dimensions
+%
+\setlength    {\textheight}      {22.7cm}
+\setlength    {\textwidth}       {15.4cm}
+\setlength    {\topmargin}       {-1cm}
+\setlength    {\headheight}      {0.5cm}
+\setlength    {\headsep}         {0.75cm}
+\setlength    {\oddsidemargin}   {0.5cm}
+\setlength    {\evensidemargin}  {0.5cm}
+\renewcommand {\baselinestretch} {1.25}
+
+%\setlength    {\footskip}        {1cm}
+%\setlength    {\footheight}      {0.4cm}
+%\setlength    {\parskip}         {0.1cm}
+%\setlength    {\baselineskip}    {0.4cm}
+%\setlength    {\parindent}       {5ex}
+%\setlength {\topsep} {0cm}
+% ----------------------------------------------------------------------
+%
+% control flags
+% ----------------------------------------------------------------------
+\makeatletter
+%-----------------------------------------------------------------------
+%
+% 設定中文計數
+% ----------------------------------------------------------------------
+% CAlph
+\newcount\c@iv \newcount\c@iii \newcount\c@ii \newcount\c@i \newcount\c@tmp
+\def\CAlph#1{\expandafter\@CAlph\csname c@#1\endcsname}
+\def\@CAlph#1{%
+	\ifcase#1\or 壹\or 貳\or 參\or 肆\or 伍\or 陸\or 柒\or 捌\or 玖\or 拾
+	\else\@IcAlph{#1}\fi}
+\def\@IcAlph#1{%
+	\ifcase#1\or\or\or\or\or\or\or\or\or\or
+	\or 拾壹\or 拾貳\or 拾參\or 拾肆\or 拾伍\or 拾陸\or 拾柒\or 拾捌\or 拾九\or
+	貳拾\or 貳拾壹\or 貳拾貳\or 貳拾參\or 貳拾肆\or 貳拾伍\or 貳拾陸\or 貳拾柒\or
+	貳拾捌\or 貳拾玖
+	\else\@IIcAlph{#1}\fi}
+\def\@IIcAlph#1{%
+	\c@ii=#1\divide\c@ii by10
+	\c@tmp=\c@ii\multiply\c@tmp by10
+	\c@i=#1\advance\c@i by-\c@tmp
+	\ifcase\c@ii\or\or\or 參拾\or 肆拾\or 伍拾\or 陸拾\or 柒拾\or 捌拾\or 九拾
+	\else\@IIIcAlph{\c@ii}{\c@i}\fi
+	\ifcase\c@i\or 壹\or 貳\or 參\or 肆\or 伍\or 陸\or 柒\or 捌\or 玖
+	\fi}
+\def\@IIIcAlph#1#2{%
+	\c@iii=#1\divide\c@iii by10
+	\c@tmp=\c@iii\multiply\c@tmp by10
+	\c@ii=#1\advance\c@ii by-\c@tmp
+	\ifcase\c@iii\or 一佰\or 二佰\or 三佰\or 四佰\or 五佰\or 六佰\or 七佰\or 八佰\or 九佰
+	\else\@IVcAlph{\c@iii}{\c@ii}\fi
+	\ifnum\c@ii=0\ifnum#2>0零\fi\else
+	\ifcase\c@ii\or 壹\or 貳\or 參\or 肆\or 伍\or 陸\or 柒\or 捌\or 玖\or 拾}
+\def\@IVcAlph#1#2{%
+	\c@iv=#1\divide\c@iv by10
+	\c@tmp=\c@iv\multiply\c@tmp by10
+	\c@iii=#1\advance\c@iii by-\c@tmp
+	\ifcase\c@iv\or 壹\or 貳\or 參\or 肆\or 伍\or 陸\or 柒\or 捌\or 玖
+	\else\@ctrerr\fi
+	千\ifnum\c@iii=0\ifnum#2>0零\fi
+	\else\ifcase\c@iii\or 壹\or 貳\or 參\or 肆\or 伍\or 陸\or 柒\or 捌\or 玖\fi 百\fi}
+% Calph
+\newcount\c@iv \newcount\c@iii \newcount\c@ii \newcount\c@i \newcount\c@tmp
+\def\Calph#1{\expandafter\@Calph\csname c@#1\endcsname}
+\def\@Calph#1{%
+   \ifcase#1\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\or 十
+   \else\@Icalph{#1}\fi}
+\def\@Icalph#1{%
+   \ifcase#1\or\or\or\or\or\or\or\or\or\or
+   \or 十一\or 十二\or 十三\or 十四\or 十五\or 十六\or 十七\or 十八\or 十九\or
+       二十\or 二十一\or 二十二\or 二十三\or 二十四\or 二十五\or 二十六\or 二十七\or
+       二十八\or 二十九
+   \else\@IIcalph{#1}\fi}
+\def\@IIcalph#1{%
+   \c@ii=#1\divide\c@ii by10
+   \c@tmp=\c@ii\multiply\c@tmp by10
+   \c@i=#1\advance\c@i by-\c@tmp
+   \ifcase\c@ii\or\or\or 三十\or 四十\or 五十\or 六十\or 七十\or 八十\or 九十
+   \else\@IIIcalph{\c@ii}{\c@i}\fi
+   \ifcase\c@i\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九
+   \fi}
+\def\@IIIcalph#1#2{%
+   \c@iii=#1\divide\c@iii by10
+   \c@tmp=\c@iii\multiply\c@tmp by10
+   \c@ii=#1\advance\c@ii by-\c@tmp
+   \ifcase\c@iii\or 一百\or 二百\or 三百\or 四百\or 五百\or 六百\or 七百\or 八百\or 九百
+   \else\@IVcalph{\c@iii}{\c@ii}\fi
+   \ifnum\c@ii=0\ifnum#2>0零\fi\else
+   \ifcase\c@ii\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\fi 十\fi}
+\def\@IVcalph#1#2{%
+   \c@iv=#1\divide\c@iv by10
+   \c@tmp=\c@iv\multiply\c@tmp by10
+   \c@iii=#1\advance\c@iii by-\c@tmp
+   \ifcase\c@iv\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九
+   \else\@ctrerr\fi
+  千\ifnum\c@iii=0\ifnum#2>0零\fi
+  \else\ifcase\c@iii\or 一\or 二\or 三\or 四\or 五\or 六\or 七\or 八\or 九\fi 百\fi}
+
+% ----------------------------------------------------------------------
+% page header and footer
+% ----------------------------------------------------------------------
+% Definition of 'myheadings' page style.
+%
+\def\blfootnote{\gdef\@thefnmark{}\@footnotetext}
+
+\def\ps@myheadings
+{  \let\@mkboth\@gobbletwo
+   \def\@oddhead{\rm
+       \vtop{\centering \par\vspace{1ex plus 3ex minus 3ex}
+       \rightmark}
+       \hspace{0em plus 1em minus 2em}  \hfill \thepage
+       }%
+   \def\@oddfoot{}
+   \def\@evenhead{\rm
+       \thepage\hfil \hspace{0em plus 1em minus 2em}
+       \vtop{\centering\par\vspace{1ex plus 3ex minus 3ex} \leftmark}
+       }%
+   \def\@evenfoot{}
+   \def\sectionmark##1{}\def\subsectionmark##1{}
+}
+%
+% this page style and make title header for English
+%
+% need to specify the
+\def\ps@thisheadings
+{  \let\@mkboth\@gobbletwo
+   \def\@oddhead{\rm \JournalName \hfill \thepage}%
+   \def\@oddfoot{}
+   \def\@evenhead{\rm \thepage \hfill \JournalName}%
+   \def\@evenfoot{}
+}
+
+\def\abstract{\footnotesize\vspace{1ex}\null
+\begin{center}
+\blfootnote{~\chistory}
+{\large\bf \abstractname \vspace{1.5ex}}
+\end{center}
+\quotation
+}
+%
+% this page style and make title header for Chinese
+%
+% need to specify the
+% inside the CJK environment
+%
+\def\ps@cthisheadings
+{  \let\@mkboth\@gobbletwo
+   \def\@oddhead{\rm \cJournalName
+       \hspace{0em plus 2em minus 3em}  \hfill \thepage
+   }%
+   \def\@oddfoot{}
+   \def\@evenhead{\rm \thepage\hfil }%
+   \def\@evenfoot{}
+   \let\thefootnote\relax
+}
+\def\@maketitle{\newpage \null
+{\centering
+	{\LARGE\bfseries\textbf{\@title} \par}     % Title set in \LARGE size.
+		\vskip 1ex                    % Vertical space after title. 
+		{\Large                       % each author set in \large, in a
+			\lineskip .5ex            % tabular environment
+			\begin{tabular}[t]{c}\@author
+			\end{tabular}\par}
+	} \vspace{2ex} \null
+}
+
+%
+% change the length of the ruler for footnotetext
+% the specification of
+%   \footnotemark[?}\thanks{...}
+% inside title or author, need to move it to a new
+% \footnotetext[?]{...}
+%
+% specify the footnote mark as symbol
+%
+\renewcommand\footnoterule{%
+  \kern-3\p@
+  \hrule\@width1.01\columnwidth
+  \kern2.6\p@}
+
+\renewcommand\@makefntext[1]{%
+    \parindent 1em%
+    \noindent
+    \hb@xt@0.5em{\hss\@makefnmark}#1}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%
+% section head information
+%
+%\def\section{\setcounter{equation}{0}\@startsection {section}{1}{\z@}{6.5ex plus 1ex minus
+%    .2ex}{4ex plus .2ex}{\Large\bf\centering}}
+%\def\subsection{\@startsection{subsection}{2}{\z@}{0.1ex plus .1ex minus%
+%.1ex}{0.1ex plus .1ex}{\large\bf}}
+%\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{0.1ex plus .1ex minus%
+%.1ex}{0.1ex plus .1ex}{\normalsize\bf}}
+\usepackage{titlesec}
+\titleformat{\section}{\setcounter{equation}{0}\Large\bfseries\raggedright}{\CAlph{section}、}{0.1em}{}
+\titleformat{\subsection}{\large\bfseries\raggedright}{\Calph{subsection}、}{0.1em}{}
+\titleformat{\subsubsection}{\bfseries\raggedright}{(\Calph{subsubsection})}{0.1em}{}
+
+% Consistent academic spacing for headings, paragraphs, displays, and bibliography.
+\titlespacing{\section}{0pt}{3.2ex plus 0.6ex minus 0.2ex}{1.6ex plus 0.2ex}
+\titlespacing{\subsection}{0pt}{2.8ex plus 0.5ex minus 0.2ex}{1.2ex plus 0.2ex}
+\titlespacing{\subsubsection}{0pt}{2.4ex plus 0.4ex minus 0.2ex}{0.9ex plus 0.2ex}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt plus 0.2ex}
+\setlength{\abovedisplayskip}{0.75\baselineskip plus 0.2\baselineskip minus 0.15\baselineskip}
+\setlength{\belowdisplayskip}{0.75\baselineskip plus 0.2\baselineskip minus 0.15\baselineskip}
+\setlength{\abovedisplayshortskip}{0.5\baselineskip plus 0.15\baselineskip}
+\setlength{\belowdisplayshortskip}{0.5\baselineskip plus 0.15\baselineskip}
+\setlength{\jot}{3pt}
+\setlength{\bibhang}{2em}
+\setlength{\bibsep}{0pt plus 0.2ex}
+\setlength{\emergencystretch}{1em}
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
+\titleformat{\subsubsubsection}{\bfseries\raggedright}{\arabic{subsubsubsection}.}{0.1em}{}
+\titleformat{\subsubsubsubsection}{\raggedright}{\indent(\arabic{subsubsubsubsection})}{0.1em}{}
+
+%
+
+% ----------------------------------------------------------------------
+%  中文定理名稱設定 
+% environment for theorem like environment writing.
+% ----------------------------------------------------------------------
+
+%
+\newtheorem {definition}{定義}[section]
+\newtheorem {defn}      {定義}[section]
+\newtheorem {example}    [definition]{範例}
+\newtheorem {lemma}      [definition]{引理}
+\newtheorem {lem}        [definition]{引理}
+\newtheorem {theorem}    [definition]{定理}
+\newtheorem {problem}    [definition]{問題}
+\newtheorem {proposition}[definition]{命題}
+\newtheorem {corollary}  [definition]{推論}
+\providecommand{\theoremname}{定理}
+
+\newcounter{remark}[section]
+\newenvironment{remark} {\stepcounter{definition}\setcounter{remark}{\value{definition}}\vspace{.5em}\par\noindent%
+{\bf Remark \theremark}~\begingroup}{\endgroup}
+\renewcommand{\theremark}{\thesection.\arabic{remark}~}
+
+%\newcounter{example}[section]
+%\newenvironment{example} {\stepcounter{definition}\setcounter{example}{\value{definition}}\vspace{.5em}\par\noindent%
+%\textbf{範例 \theexample}~\begingroup\Kai}{\endgroup}
+%\renewcommand{\theexample}{\thesection.\arabic{example}.~}
+
+%
+% specify the display style for equation number
+%
+\renewenvironment{proof}[1][\proofname]{\par%
+\pushQED{\qed}%
+\normalfont \topsep6\p@\@plus6\p@\relax%
+\trivlist%
+\item[\hskip\labelsep%
+#1]\ignorespaces%
+}{%
+\popQED\endtrivlist\@endpefalse%
+}
+
+\makeatother
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\abstractname}{摘\quad{}要}
+\renewcommand{\refname}{參考文獻}
+\renewcommand{\tocbibname}{參考文獻}
+\renewcommand{\settocname}{參考文獻}
+\renewcommand{\appendixname}{附錄}
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\proofname}{\bfseries 證明:}
+\renewcommand\contentsname{\bfseries - 目 錄 }
+\renewcommand{\listfigurename}{\bfseries 圖 目 錄} 
+\renewcommand{\listtablename}{\bfseries 表 目 錄}
+
+
+% ----------------------------------------------------------------------------
+\providecommand{\tabularnewline}{\\}
+
+\newcommand{\noun}[1]{\textsc{#1}}
+\makeatother
